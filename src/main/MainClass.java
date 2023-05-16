@@ -12,7 +12,7 @@ import score.ScoreServiceImpl;
 
 public class MainClass {
 	public static void main(String[] args) {
-
+		
 		Scanner scan = new Scanner(System.in);
 		DormitoryService ds = new DormitoryServiceImpl();
 		ScoreService ss = new ScoreServiceImpl();
