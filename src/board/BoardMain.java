@@ -36,8 +36,18 @@ public class BoardMain {
 				System.out.println("-----------------------");
 				System.out.println("확인할 게시물의 번호를 입력해주세요");
 				int bnum = scan.nextInt();
-				if(bnum == (list.get(bnum).getNum())){
-					list.get(bnum).getContents();
+				
+				BoardDTO dto = bt.bVeiw_con(bnum);
+				if (dto != null) {
+				System.out.println("-----------------------");
+				System.out.println("작성자 : " + dto.getId()); 
+				System.out.println("게시물 번호 : " + dto.getNum()); 
+				System.out.println("제목 : " + dto.getTitle()); 
+				System.out.println("날짜 : " + dto.getDate()); 
+				System.out.println("내용 : " + dto.getContents()); 
+				System.out.println("-----------------------");
+				}else {
+					System.out.println("해당 글은 없습니다.");
 				}
 				break;
 			case 2 :

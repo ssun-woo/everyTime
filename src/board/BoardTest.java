@@ -13,7 +13,7 @@ public class BoardTest {
 	ResultSet rs;
 	
 	public int bEdit(int choice, String contents) {
-		String sql="insert into board2(contents) values(?) where num=?";
+		String sql="insert into board(contents) values(?) where num=?";
 		int result = 0;
 		try {
 			ps = con.prepareStatement(sql);
@@ -26,28 +26,51 @@ public class BoardTest {
 	}
 	
 	public ArrayList<BoardDTO> bVeiw() {
-		String sql ="select * from board2";
+		String sql ="select * from board";
 		ArrayList<BoardDTO> list = new ArrayList<>();
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				BoardDTO dto = new BoardDTO();
-				dto.setNum(rs.getInt("num"));
-				dto.setId(rs.getString("id"));
-				dto.setTitle(rs.getString("title"));
-				dto.setDate(rs.getString("date"));
+				dto.setNum(rs.getInt("b_num"));
+				dto.setId(rs.getString("b_id"));
+				dto.setTitle(rs.getString("b_title"));
+				dto.setDate(rs.getString("date"));;
 				list.add(dto);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return list;
-		
+		return list;	
 	}
+	
+	
+	public BoardDTO bVeiw_con(int bnum) {
+		String sql ="select * from board where b_num = ?";
+		BoardDTO dto = null;
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, bnum);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				dto = new BoardDTO();
+				dto.setNum(rs.getInt("b_num"));
+				dto.setId(rs.getString("b_id"));
+				dto.setTitle(rs.getString("b_title"));
+				dto.setContents(rs.getString("b_contents"));
+				dto.setDate(rs.getString("b_date"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return dto;	
+	}
+	
 
 	public int bWirte(BoardDTO bd) {
-		String sql="insert into board2(num,id,title,contents,pwd) values(board_seq.nextval,?,?,?,?)";
+		String sql="insert into board(num,id,title,contents,pwd) values(board_seq.nextval,?,?,?,?,sysdadte)";
 		int result = 0;
 		try {
 			ps = con.prepareStatement(sql);
