@@ -103,10 +103,7 @@ public class MainClass {
 								switch (adminChoice) {
 
 								case 1:
-<<<<<<< HEAD
-=======
 									// 로그아웃
->>>>>>> master
 									System.out.println("로그아웃합니다.");
 									break;
 
@@ -159,41 +156,25 @@ public class MainClass {
 						} else {
 							// 일반 회원 메뉴
 							System.out.println("1. 로그아웃");
-<<<<<<< HEAD
 							System.out.println("2. 게시판 조회");
 							System.out.println("3. 게시글 만들기");
 							System.out.println("4. 시간표 ");
 							System.out.println("5. 기숙사 ");
 							System.out.println("6. 학점");
-=======
-							System.out.println("2. 게시판 조희");
-							System.out.println("3. 게시글 만들기");
-							System.out.println("4. 시간표 ");
-							System.out.println("5. 기숙사 ");
->>>>>>> master
 							System.out.print("메뉴 선택: ");
 
 							int memberChoice = sc.nextInt();
 
 							switch (memberChoice) {
 							case 1:
-<<<<<<< HEAD
-=======
 								// 로그아웃
->>>>>>> master
 								System.out.println("로그아웃합니다.");
 								isAdmin = null;
 								break;
 
 							case 2:
-<<<<<<< HEAD
 								break;
-=======
 								// 게시판 조회
-
-								break;
-
->>>>>>> master
 							case 3:
 								// 게시글 만들기
 								break;
@@ -203,17 +184,10 @@ public class MainClass {
 							case 5:
 								// 기숙사
 								break;
-<<<<<<< HEAD
 							case 6:
 								// 학점
-								
-								break;
-							}
-						}
-					}
-				}
 
-=======
+								break;
 							}
 						}
 					}
@@ -223,7 +197,6 @@ public class MainClass {
 
 				break;
 
->>>>>>> master
 			case 3:
 				System.out.println("프로그램을 종료합니다.");
 				sc.close();
