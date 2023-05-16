@@ -1,9 +1,11 @@
 package main;
+
 import common.DBConnection;
+import memberDTO.MemberDTO;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Scanner;
 
 public class MainClass {
@@ -47,15 +49,14 @@ public class MainClass {
 
 				System.out.print("관리자 여부 (Y/N): ");
 				String adminOrNot = sc.next();
-				if(adminOrNot.equals("Y")) {  
+				if (adminOrNot.equals("Y")) {
 					pstmt = con.prepareStatement("SELECT count(*) FROM MEMBER WHERE is_admin = 'Y'");
 					ResultSet adminRs = pstmt.executeQuery();
-					if(adminRs.next()) System.out.println("관리자 계정이 이미 존재합니다.");
+					if (adminRs.next())
+						System.out.println("관리자 계정이 이미 존재합니다.");
 					break;
 				}
 				memberDTO.setIs_admin(sc.next());
-				
-				
 
 				pstmt = con.prepareStatement("INSERT INTO member VALUES (?, ?, ?, ?, ?,?)");
 				pstmt.setString(1, memberDTO.getM_id());
@@ -117,7 +118,7 @@ public class MainClass {
 										System.out.println("PWD: " + rs.getString("m_pwd"));
 										System.out.println("UVY: " + rs.getString("m_sName"));
 										System.out.println("MAYOR: " + rs.getString("m_major"));
-										System.out.println("ADMIN:"+rs.getString("Is_Admin"));
+										System.out.println("ADMIN:" + rs.getString("Is_Admin"));
 										System.out.println("================================");
 									}
 
@@ -137,7 +138,7 @@ public class MainClass {
 									}
 
 									break;
-             
+
 								case 4:
 									// 게시판 삭제
 
@@ -176,18 +177,18 @@ public class MainClass {
 								break;
 
 							case 3:
-                                //게시글 만들기
+								// 게시글 만들기
 								break;
 							case 4:
-								//시간표 
+								// 시간표
 								break;
 							case 5:
-								//기숙사
+								// 기숙사
 								break;
 							}
 						}
 					}
-				}else {
+				} else {
 					System.out.println("아이디 또는 비밀번호가 일치하지 않습니다.");
 				}
 
