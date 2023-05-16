@@ -59,7 +59,7 @@ public class ScoreServiceImpl implements ScoreService {
 		String sql = "select * from score where s_id = ? and s_cname = ?";
 		boolean bool = false;
 		try {
-			
+
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			ps.setString(2, originCname);
@@ -77,7 +77,7 @@ public class ScoreServiceImpl implements ScoreService {
 	public int updateScore(String id, String originCname, String updateCname, int credit2, String grade2, int mCheck2) {
 		String sql = "update score set s_cName = ?, s_credit = ?, s_grade = ? , s_mCheck = ? where s_Cname = ? and s_id = ?";
 		int result = 0;
-		
+
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, updateCname);
@@ -86,14 +86,13 @@ public class ScoreServiceImpl implements ScoreService {
 			ps.setInt(4, mCheck2);
 			ps.setString(5, originCname);
 			ps.setString(6, id);
-			
+
 			result = ps.executeUpdate();
-			
-		}catch(Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
+
 		return result;
 	}
 
@@ -132,22 +131,6 @@ public class ScoreServiceImpl implements ScoreService {
 
 }
 
+<<<<<<<HEAD
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+=======>>>>>>>master
