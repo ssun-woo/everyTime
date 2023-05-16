@@ -43,15 +43,7 @@ public class MainClass {
 							int choice2 = scan.nextInt();
 							
 							switch(choice2) {
-							case 1: 
-							case 1: 
-							case 1: 
-							case 1: 
-							case 1: 
-							case 1: 
-								
-								
-								
+					
 							}
 						
 							

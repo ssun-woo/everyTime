@@ -13,7 +13,7 @@ public class BoardTest {
 	ResultSet rs;
 	
 	public int bEdit(int choice, String contents) {
-		String sql="insert into newst(contents) values(?) where num=?";
+		String sql="insert into board2(contents) values(?) where num=?";
 		int result = 0;
 		try {
 			ps = con.prepareStatement(sql);
@@ -26,7 +26,7 @@ public class BoardTest {
 	}
 	
 	public ArrayList<BoardDTO> bVeiw() {
-		String sql ="select * from board";
+		String sql ="select * from board2";
 		ArrayList<BoardDTO> list = new ArrayList<>();
 		try {
 			ps = con.prepareStatement(sql);
@@ -47,7 +47,7 @@ public class BoardTest {
 	}
 
 	public int bWirte(BoardDTO bd) {
-		String sql="insert into board(num,id,title,contents,pwd) values(board_seq.nextval,?,?,?,?)";
+		String sql="insert into board2(num,id,title,contents,pwd) values(board_seq.nextval,?,?,?,?)";
 		int result = 0;
 		try {
 			ps = con.prepareStatement(sql);
